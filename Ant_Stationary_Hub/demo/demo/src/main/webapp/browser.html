@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Browser Stationery Shop</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <style>
+    .product-card {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+      margin: 10px;
+      width: 200px;
+      display: inline-block;
+    }
+    .product-img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+    .product-title {
+      font-weight: bold;
+      margin-top: 5px;
+    }
+    .product-price {
+      color: rgb(0, 128, 0);
+      margin-top: 5px;
+    }
+    .btn {
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+    .cart-icon {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 20px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+<body class="bg-danger-subtle" style="background-image: url(./pink.jpg); background-size: 80%;">
+  <header class="bg-danger-subtle">
+    <nav class="navbar navbar-expand-lg bg-danger-subtle">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">ANTS STATIONERY HUB</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="home.html">Admin</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" aria-disabled="true" style="color: aliceblue; font-size: medium;">Contact us :061 789 9527 </a>
+            </li>
+          </ul>
+          <!-- Cart icon button -->
+          <button class="cart-icon" onclick="goToCart()">🛒 <span id="cart-count">0</span></button>
+          <form class="d-flex" role="search">
+			<p class="lead" style="font-size: 40; color: rgb(255, 255, 255); font-weight: bold;">Cash On Deliver Only!!!</p>
+          </form>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <h1>Shopping Now</h1>
+  <div id="products">
+    <!-- Product Cards -->
+    <div class="product-card bg-danger-subtle">
+      <img class="product-img bg-danger-subtle" src="./book1.webp" alt="Product Image">
+      <div class="product-title">Exercise PrimeLine</div>
+      <div class="product-price">R15.00</div>
+      <button class="add-to-cart-btn bg-danger" onclick="addToCart('Exercise PrimeLine', 15.00)">Add to Cart</button>
+    </div>
+    <div class="product-card bg-danger-subtle">
+      <img class="product-img bg-danger-subtle" src="./book3.webp" alt="Product Image">
+      <div class="product-title"> Count Book</div>
+      <div class="product-price">R25.00</div>
+      <button class="add-to-cart-btn bg-danger" onclick="addToCart('Count Book', 25.00)">Add to Cart</button>
+    </div>
+    <div class="product-card bg-danger-subtle">
+      <img class="product-img bg-danger-subtle" src="./book4.jpg" alt="Product Image">
+      <div class="product-title">Work Book</div>
+      <div class="product-price">R29.00</div>
+      <button class="add-to-cart-btn bg-danger" onclick="addToCart('Work Book', 29.00)">Add to Cart</button>
+    </div>
+	<div class="product-card bg-danger-subtle">
+	      <img class="product-img bg-danger-subtle" src="./book5.webp" alt="Product Image">
+	      <div class="product-title">Exercise Book</div>
+	      <div class="product-price">R17.00</div>
+	      <button class="add-to-cart-btn bg-danger" onclick="addToCart('Exercise Book', 17.00)">Add to Cart</button>
+	    </div>
+	    <div class="product-card bg-danger-subtle">
+	      <img class="product-img bg-danger-subtle" src="./s11.jpg" alt="Product Image">
+	      <div class="product-title"> Sharpner</div>
+	      <div class="product-price">R8.00</div>
+	      <button class="add-to-cart-btn bg-danger" onclick="addToCart('Sharpner', 8.00)">Add to Cart</button>
+	    </div>
+	    <div class="product-card bg-danger-subtle">
+	      <img class="product-img bg-danger-subtle" src="./TPG0063AB.jpg" alt="Product Image">
+	      <div class="product-title">Ruler</div>
+	      <div class="product-price">R15.00</div>
+	      <button class="add-to-cart-btn bg-danger" onclick="addToCart('Ruler', 15.00)">Add to Cart</button>
+	    </div>
+		<div class="product-card bg-danger-subtle">
+		      <img class="product-img bg-danger-subtle" src="./pencil.png" alt="Product Image">
+		      <div class="product-title">Pencil</div>
+		      <div class="product-price">R35.00</div>
+		      <button class="add-to-cart-btn bg-danger" onclick="addToCart('Pencil', 35.00)">Add to Cart</button>
+		    </div>
+		    <div class="product-card bg-danger-subtle">
+		      <img class="product-img bg-danger-subtle" src="./000000000000323761.webp" alt="Product Image">
+		      <div class="product-title"> Study Toy</div>
+		      <div class="product-price">R100.00</div>
+		      <button class="add-to-cart-btn bg-danger" onclick="addToCart('Study Toy', 100.00)">Add to Cart</button>
+		    </div>
+		    <div class="product-card bg-danger-subtle">
+		      <img class="product-img bg-danger-subtle" src="./calcutor2.webp" alt="Product Image">
+		      <div class="product-title">Calculator</div>
+		      <div class="product-price">R320.00</div>
+		      <button class="add-to-cart-btn bg-danger" onclick="addToCart('Calculator', 320.00)">Add to Cart</button>
+		    </div>
+			<div class="product-card bg-danger-subtle">
+			      <img class="product-img bg-danger-subtle" src="./images.jpg" alt="Product Image">
+			      <div class="product-title">Paint Container</div>
+			      <div class="product-price">R50.00</div>
+			      <button class="add-to-cart-btn bg-danger" onclick="addToCart('Paint Container', 50.00)">Add to Cart</button>
+			    </div>
+			    <div class="product-card bg-danger-subtle">
+			      <img class="product-img bg-danger-subtle" src="./bic-Clic-Medium-Black--540x540.jpg" alt="Product Image">
+			      <div class="product-title">Pen Bic</div>
+			      <div class="product-price">R70.00</div>
+			      <button class="add-to-cart-btn bg-danger" onclick="addToCart('Pen Bic', 70.00)">Add to Cart</button>
+			    </div>
+			    <div class="product-card bg-danger-subtle">
+			      <img class="product-img bg-danger-subtle" src="./csm_52650_WEB_SINGLE-PRODUCT_EINZELPRODUKT_3c30a3758b.webp" alt="Product Image">
+			      <div class="product-title">Eraser</div>
+			      <div class="product-price">R25.00</div>
+			      <button class="add-to-cart-btn bg-danger" onclick="addToCart('Eraser', 25.00)">Add to Cart</button>
+			    </div>
+  </div>
+
+  <script>
+    let cart = [];
+
+    function addToCart(productName, price) {
+      let quantity = parseInt(prompt("Enter quantity:"));
+      if (!isNaN(quantity) && quantity > 0) {
+        let existingProductIndex = cart.findIndex(item => item.name === productName);
+        if (existingProductIndex !== -1) {
+          cart[existingProductIndex].quantity += quantity;
+        } else {
+          cart.push({ name: productName, price: price, quantity: quantity });
+        }
+        updateCart();
+      } else {
+        alert("Invalid quantity. Please enter a valid number.");
+      }
+    }
+
+    function updateCart() {
+      localStorage.setItem('cart', JSON.stringify(cart));
+      document.getElementById('cart-count').textContent = cart.length;
+    }
+
+    function goToCart() {
+      window.location.href = 'cartyyy.html';
+    }
+  </script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
+ 

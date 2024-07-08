@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Entry Form</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body class="bg-danger-subtle" style="background-image: url(./background8.jpeg); background-size: 80%;">
+    <div class="container">
+        <h2		style="color: rgb(255, 255, 255);">Data Entry Form</h2		style="color: aliceblue;">
+        <form action="/reg" method="post">
+			
+            <div class="form-group">
+                <label style="color: aliceblue;" for="adminNo">Admin NO:</label>
+                <input type="text" class="form-control" id="adminNo" name="adminNo"	style="width: 30%;">
+            </div>
+            <div class="form-group">
+                <label 				style="color: aliceblue;" for="name">Name:</label>
+                <input type="text" class="form-control" id="name" name="name" style="width: 30%;">
+            </div>
+            <div class="form-group">
+                <label				style="color: aliceblue;" for="surname">Surname:</label				style="color: aliceblue;">
+                <input type="text" class="form-control" id="surname" name="surname" style="width: 30%;">
+            </div>
+            <div class="form-group">
+                <label				style="color: aliceblue;" for="username">Username:</label				style="color: aliceblue;">
+                <input type="email" class="form-control" id="username" name="username" 	style="width: 30%;">
+            </div>
+            <div class="form-group">
+                <label				style="color: aliceblue;" for="password">Password:</label				style="color: aliceblue;">
+                <input type="password" class="form-control" id="password" name="password" 	style="width: 30%;">
+            </div>
+			
+            <button type="submit" href="home.html" style="width: 30%;" class="btn btn-primary btn-block">Register</button>
+        </form>
+    </div>
+
+    <!-- Include Bootstrap JS (and jQuery for Bootstrap features) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

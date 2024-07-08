@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart</title>
+  <style>
+    .product-card {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+    .btn {
+      padding: 5px 10px;
+      cursor: pointer;
+      margin-right: 5px;
+    }
+    .quantity-input {
+      width: 50px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body class="bg-danger-subtle" style="background-image: url(./background2.jpg); background-size: 80%;">
+  <h1>Your Cart</h1>
+  <div id="cart-items"></div>
+  <p>Total Price: R<span id="total-price">0</span></p>
+  <button class="btn" onclick="completeOrder()">Complete Order</button>
+  <button class="btn" onclick="goBack()">Back</button>
+
+  <script>
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    function updateCart() {
+      let cartItemsElement = document.getElementById('cart-items');
+      cartItemsElement.innerHTML = '';
+      let totalPrice = 0;
+
+      cart.forEach((product, index) => {
+        let productTotal = product.price * product.quantity;
+        totalPrice += productTotal;
+
+        let productElement = document.createElement('div');
+        productElement.classList.add('product-card');
+        productElement.innerHTML = `
+          <h3>${product.name}</h3>
+          <p>Price: R${product.price}</p>
+          <p>Quantity: ${product.quantity}</p>
+          <p>Total: R${productTotal}</p>
+          <button class="btn" onclick="removeFromCart(${index})">Remove</button>
+          <button class="btn" onclick="updateQuantity(${index})">Update Quantity</button>
+        `;
+
+        cartItemsElement.appendChild(productElement);
+      });
+
+      document.getElementById('total-price').textContent = totalPrice;
+    }
+
+    function removeFromCart(index) {
+      cart.splice(index, 1);
+      updateCartInLocalStorage();
+      updateCart();
+    }
+
+    function updateQuantity(index) {
+      let newQuantity = parseInt(prompt("Enter new quantity:"));
+      if (!isNaN(newQuantity) && newQuantity > 0) {
+        cart[index].quantity = newQuantity;
+        updateCartInLocalStorage();
+        updateCart();
+      } else {
+        alert("Invalid quantity. Please enter a valid number.");
+      }
+    }
+
+    function updateCartInLocalStorage() {
+      localStorage.setItem('cart', JSON.stringify(cart));
+    }
+
+    function completeOrder() {
+      alert('Order completed!');
+      cart = [];
+      updateCartInLocalStorage();
+      updateCart();
+      window.location.href = 'finish.html'; // Redirect to the homepage or another page
+    }
+	updateCart();
+	
+	function goBack(){
+		
+		window.history.back();
+	}
+
+    // Initialize the cart view
+   
+  </script>
+</body>
+</html>
